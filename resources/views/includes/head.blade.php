@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OND | Administration</title>
+    <title>Administration | Observatoire</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -33,13 +33,16 @@
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
     <style>
         [class*="sidebar-dark-"]{
-            background-color: #3d9970;
+            background-color: #b73f32;
         }
         .btn-success {
             color: #fff;
-            background-color: #3d9970;
-            border-color: #3d9970;
+            background-color: #b73f32;
+            border-color: #b74f5a;
             box-shadow: none;
+        }
+        .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+        color: #769C38;
         }
     </style>
   </head>
