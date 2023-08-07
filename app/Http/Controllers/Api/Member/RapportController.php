@@ -46,9 +46,8 @@ class RapportController extends ExtendedController
      */
     public function store(Request $request)
     {
-        //dd(request()->all());
         $rapport = new Rapport();
-        $fichier = $request->fichier;
+        $fichier = $request->fichier_uri;
         $rapport->name = $request->name;
         $rapport->fichier_uri = $this->entityDocumentCreate($fichier,'rapports',time());
         $rapport->entreprise_id = auth()->user()->entreprise_id;

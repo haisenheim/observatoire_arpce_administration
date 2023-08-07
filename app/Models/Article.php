@@ -8,17 +8,11 @@ class Article extends Model
 {
     //
     protected $guarded = ['id'];
-    protected $appends = ['photo','fichier','status','clefs','cat','created','author'];
 
     public function getPhotoAttribute(){
         $host = request()->getSchemeAndHttpHost();
         $path = $host.'/img/'.$this->image_uri;
         return $path;
-    }
-
-    public function getCreatedAttribute(){
-
-        return date_format($this->created_at,'d/m/Y');
     }
 
     public function getFichierAttribute(){
@@ -36,22 +30,6 @@ class Article extends Model
         }
         return $data;
     }
-
-    public function getCatAttribute(){
-
-        return $this->category;
-    }
-
-    public function getAuthorAttribute(){
-
-        return $this->user;
-    }
-
-    public function getClefsAttribute(){
-
-        return $this->tags;
-    }
-
 
     public function category()
     {

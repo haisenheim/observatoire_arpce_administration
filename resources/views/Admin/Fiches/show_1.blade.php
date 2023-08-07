@@ -8,7 +8,14 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="section-title">
-                            <h5>FICHE DE COLLECTE DE DONNEES {{ $fiche->annee }}</h5>
+                            <div class="d-flex justify-content-xl-between">
+                                <div>
+                                    <h5>FICHE DE COLLECTE DE DONNEES {{ $fiche->annee }}</h5>
+                                </div>
+                                <div class="">
+                                    <a class="btn btn-sm btn-success" href="/admin/fiche/export/{{ $fiche->token }}"><i class="fa fa-file-excel"></i> Exporter</a>
+                                </div>
+                            </div>
                         </div>
 
                         <h4 class="text-bold">I  - Emissions de GES et consommations énergétiques des opérateurs de communications électroniques</h4>

@@ -40,13 +40,15 @@ class ParamController extends ExtendedController
      */
     public function store(Request $request)
     {
-        $data = $request->except('logo');
-        $image = $request->logo;
+        
+        $data = $request->except('about_photo',);
+        $image = $request->about_photo;
         if($image){
-            $path = $this->entityImgCreate($image,'param','logo');
-            $data['logo'] = $path;
+            $path = $this->entityImgCreate($image,'param','about');
+            $data['about_photo'] = $path;
         }
-        Param::updateOrCreate(['id'=>1,$data]);
+
+        Param::updateOrCreate(['id'=>1],$data);
         return back();
     }
 

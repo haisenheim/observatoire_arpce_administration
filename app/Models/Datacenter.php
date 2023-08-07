@@ -10,7 +10,6 @@ class Datacenter extends Model
     //
     protected $guarded = [];
     protected $dates = ['start'];
-    protected $appends = ['localite'];
 
     public function entreprise()
     {
@@ -20,10 +19,6 @@ class Datacenter extends Model
     public function commune()
     {
         return $this->belongsTo('App\Models\Commune');
-    }
-
-    public function getLocaliteAttribute(){
-        return $this->commune;
     }
 
 }

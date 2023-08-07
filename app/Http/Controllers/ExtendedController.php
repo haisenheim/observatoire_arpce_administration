@@ -8,7 +8,7 @@ class ExtendedController extends Controller
 {
     //
 	protected function authExtensions(){
-		return array('jpg','png','jpeg','gif','GIF','PNG','JPG','JPEG','pdf','PDF','Pdf','xlsx','csv','docx','doc','DOCX');
+		return array('jpg','png','jpeg','gif','GIF','PNG','JPG','JPEG','pdf','PDF','Pdf');
 	}
 
 	protected function entityImgCreate($file,$entity,$name_without_extension){

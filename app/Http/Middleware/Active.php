@@ -22,16 +22,23 @@ class Active
 
         Session::put('active', 1);
 
-	    if(in_array('dashboard',$path)){
+        if(in_array('about',$path)){
 		    Session::put('active', 2);
 	    }
 
-        if(in_array('blog',$path)){
+	    if(in_array('dashboard',$path)){
 		    Session::put('active', 3);
 	    }
 
-        if(in_array('contact',$path)){
+        if(in_array('blog',$path)){
 		    Session::put('active', 4);
+	    }
+        if(in_array('faq',$path)){
+		    Session::put('active', 5);
+	    }
+
+        if(in_array('contact',$path)){
+		    Session::put('active', 6);
 	    }
 
 

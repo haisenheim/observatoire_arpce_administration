@@ -10,7 +10,6 @@ class DatacenterFiche extends Model
     //
     protected $guarded = [];
     protected $table = 'datacenter_fiches';
-    protected $appends = ['dc'];
 
     public function fiche()
     {
@@ -20,10 +19,6 @@ class DatacenterFiche extends Model
     public function datacenter()
     {
         return $this->belongsTo('App\Models\Datacenter','datacenter_id');
-    }
-
-    public function getDcAttribute(){
-        return $this->datacenter;
     }
 
 

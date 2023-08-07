@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 //use JWTAuth;
 //use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Controllers\Controller;
-use App\Models\Entreprise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +25,7 @@ class AuthController extends Controller
         ]);
         $credentials = $request->only('email', 'password');
 
-        $token = Auth::guard('api')->attempt($credentials);
+        $token = auth('api')->attempt($credentials);
         if (!$token) {
             return response()->json([
                 'status' => 'error',
@@ -34,13 +33,11 @@ class AuthController extends Controller
             ], 401);
         }
 
-        $user = Auth::guard('api')->user();
-        $entreprise = Entreprise::find($user->entreprise_id);
+        $user = Auth::user();
         return response()->json([
                 'status' => 'success',
                 'user' => $user,
                 'accessToken'=>$token,
-                'entreprise'=>$entreprise,
                 'authorisation' => [
                     'token' => $token,
                     'type' => 'bearer',

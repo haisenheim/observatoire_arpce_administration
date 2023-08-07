@@ -7,6 +7,7 @@ use App\Models\Agent;
 use App\Models\Datacenter;
 use App\Models\DatacenterFiche;
 use App\Models\Fiche;
+use App\Models\Form;
 use App\Models\Rapport;
 use App\Models\Region;
 use App\Models\User;
@@ -42,14 +43,14 @@ class FicheController extends ExtendedController
         $user = User::find(auth()->user()->id);
         $ent = $user->entreprise;
         if($ent->secteur_id == 1){
-            return view('/Account/Fiches/create_1');
+            return view('/Account/Fiches/create');
         }
         if($ent->secteur_id == 2){
             return view('/Account/Fiches/create_2');
         }
         if($ent->secteur_id == 3){
             $datacenters = Datacenter::where('entreprise_id',auth()->user()->entreprise_id)->get();
-            return view('/Account/Fiches/create_3')->with(compact('datacenters'));
+            return view('/Account/Fiches/create')->with(compact('datacenters'));
         }
         return view('/Account/Fiches/create');
     }
@@ -65,10 +66,25 @@ class FicheController extends ExtendedController
        $user = User::find(auth()->user()->id);
         $data = $request->except('_token');
         $data['entreprise_id'] = $user->entreprise_id;
+        $data['user_id'] = $user->id;
         $data['type_id'] = $user->entreprise->secteur_id;
+        isset($request->has_policy)?$data['has_policy']=1:$data['has_policy']=0;
         $data['token'] = sha1($user->id.time());
-        $fiche = Fiche::updateOrCreate($data);
+        $fiche = Form::updateOrCreate($data);
         return redirect('/account/fiches/'.$fiche->token);
+    }
+
+    public function save(){
+        $field = request()->field;
+        $value = request()->value;
+        $id = request()->id;
+        Form::updateOrCreate([
+            'id'=>$id
+        ],[
+            $field => $value
+        ]);
+
+        return response()->json('Ok');
     }
 
     public function addDatacenter(Request $request){
@@ -84,16 +100,16 @@ class FicheController extends ExtendedController
     }
 
     public function show($token){
-        $fiche = Fiche::where('token',$token)->first();
+        $fiche = Form::where('token',$token)->first();
         if($fiche->type_id == 1){
-            return view('/Account/Fiches/show_1')->with(compact('fiche'));
+            return view('/Account/Fiches/show')->with(compact('fiche'));
         }
         if($fiche->type_id == 2){
             return view('/Account/Fiches/show_2')->with(compact('fiche'));
         }
         if($fiche->type_id == 3){
             $datacenters = Datacenter::where('entreprise_id',auth()->user()->entreprise_id)->get();
-            return view('/Account/Fiches/show_3')->with(compact('fiche','datacenters'));
+            return view('/Account/Fiches/show')->with(compact('fiche','datacenters'));
         }
 
         return view('/Account/Fiches/show')->with(compact('fiche'));

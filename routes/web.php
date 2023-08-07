@@ -38,6 +38,14 @@ Route::prefix('admin')
         Route::get('fiches/{token}', 'DashboardController@showFiche');
         Route::get('article/enable/{id}', 'ArticleController@enable');
         Route::get('article/disable/{id}', 'ArticleController@disable');
+        Route::get('fiche/export/{token}', 'DashboardController@exportFiche');
+        Route::get('fiche/save', 'DashboardController@saveFiche');
+
+        Route::resource('faqs', 'FaqController');
+        Route::get('faq/enable/{id}', 'FaqController@enable');
+        Route::get('faq/disable/{id}', 'FaqController@disable');
+
+
         Route::get('communes', 'CommuneController@index');
         Route::post('communes', 'CommuneController@store');
         Route::get('indicateurs', 'IndicateurController@index');
