@@ -125,12 +125,6 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/faqs" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Faq</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="/admin/tags" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mots clefs</p>
