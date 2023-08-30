@@ -22,7 +22,7 @@
                             </div>
 
                         </div>
-                        <div style="height: 100px; font-weight: 900" class="card-footer text-center">
+                        <div style="height: 200px; font-weight: 900" class="card-footer text-center">
                             <p>{{ $p->entreprise->name }}</p>
                             <p>{{ $p->annee }} - <span class="text-success">{{ $p->entreprise->secteur->name }}</span></p>
                         </div>
