@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Account;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\ExtendedController;
-use App\Models\Agent;
-use App\Models\Rapport;
+use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Pratique;
 use App\Models\Region;
+use App\User;
 use Illuminate\Http\Request;
 
-class RapportController extends ExtendedController
+class BonnePratiqueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +19,24 @@ class RapportController extends ExtendedController
     public function index()
     {
         //
-        $rapports = Rapport::where('entreprise_id',auth()->user()->entreprise_id)->get();
-        return view('/Account/Rapports/index')->with(compact('rapports'));
+        $pratiques = Pratique::all();
+        return view('/Admin/Pratiques/index')->with(compact('pratiques'));
     }
 
 
+    public function enable($id){
+        $pratique = Pratique::find($id);
+        $pratique->active = 1;
+        $pratique->save();
+        return back();
+    }
 
-
-
+    public function disable($id){
+        $pratique = Pratique::find($id);
+        $pratique->active = 0;
+        $pratique->save();
+        return back();
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -45,13 +56,11 @@ class RapportController extends ExtendedController
      */
     public function store(Request $request)
     {
-        $rapport = new Rapport();
+        $rapport = new Pratique();
         $fichier = $request->fichier_uri;
         $rapport->name = $request->name;
-        $rapport->fichier_uri = $this->entityDocumentCreate($fichier,'rapports',time());
-        $rapport->entreprise_id = auth()->user()->entreprise_id;
+        $rapport->fichier_uri = $this->entityDocumentCreate($fichier,'pratiques',time());
         $rapport->user_id = auth()->user()->id;
-        $rapport->annee = $request->annee;
         $rapport->save();
         return back();
     }

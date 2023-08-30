@@ -45,6 +45,8 @@ Route::prefix('admin')
         Route::get('faq/enable/{id}', 'FaqController@enable');
         Route::get('faq/disable/{id}', 'FaqController@disable');
 
+        Route::resource('textes', 'TexteController');
+        Route::resource('bonnes-pratiques', 'BonnePratiqueController');
 
         Route::get('communes', 'CommuneController@index');
         Route::post('communes', 'CommuneController@store');

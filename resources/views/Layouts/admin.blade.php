@@ -88,6 +88,22 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="/admin/textes" class="nav-link {{ $active==31?'active':'' }}">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                TEXTES
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/bonnes-pratiques" class="nav-link {{ $active==32?'active':'' }}">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                BONNES PRATIQUES
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="/admin/indicateurs" class="nav-link {{ $active==4?'active':'' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
