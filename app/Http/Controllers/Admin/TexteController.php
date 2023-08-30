@@ -7,10 +7,11 @@ use App\Http\Controllers\ExtendedController;
 use App\Models\Category;
 use App\Models\Pratique;
 use App\Models\Region;
+use App\Models\Texte;
 use App\User;
 use Illuminate\Http\Request;
 
-class BonnePratiqueController extends ExtendedController
+class TexteController extends ExtendedController
 {
     /**
      * Display a listing of the resource.
@@ -20,20 +21,20 @@ class BonnePratiqueController extends ExtendedController
     public function index()
     {
         //
-        $pratiques = Pratique::all();
-        return view('/Admin/Pratiques/index')->with(compact('pratiques'));
+        $textes = Texte::all();
+        return view('/Admin/Textes/index')->with(compact('textes'));
     }
 
 
     public function enable($id){
-        $pratique = Pratique::find($id);
+        $pratique = Texte::find($id);
         $pratique->active = 1;
         $pratique->save();
         return back();
     }
 
     public function disable($id){
-        $pratique = Pratique::find($id);
+        $pratique = Texte::find($id);
         $pratique->active = 0;
         $pratique->save();
         return back();
@@ -57,10 +58,10 @@ class BonnePratiqueController extends ExtendedController
      */
     public function store(Request $request)
     {
-        $rapport = new Pratique();
+        $rapport = new Texte();
         $fichier = $request->fichier_uri;
         $rapport->name = $request->name;
-        $rapport->fichier_uri = $this->entityDocumentCreate($fichier,'pratiques',time());
+        $rapport->fichier_uri = $this->entityDocumentCreate($fichier,'textes',time());
         $rapport->user_id = auth()->user()->id;
         $rapport->save();
         return back();

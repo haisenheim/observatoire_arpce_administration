@@ -46,7 +46,15 @@ Route::prefix('admin')
         Route::get('faq/disable/{id}', 'FaqController@disable');
 
         Route::resource('textes', 'TexteController');
+        Route::get('texte/enable/{id}','TexteController@enable');
+        Route::get('texte/disable/{id}','TexteController@disable');
+
+        Route::get('rapport/enable/{id}','RapportController@enable');
+        Route::get('rapport/disable/{id}','RapportController@disable');
+
         Route::resource('bonnes-pratiques', 'BonnePratiqueController');
+        Route::get('pratique/enable/{id}','BonnePratiqueController@enable');
+        Route::get('pratique/disable/{id}','BonnePratiqueController@disable');
 
         Route::get('communes', 'CommuneController@index');
         Route::post('communes', 'CommuneController@store');

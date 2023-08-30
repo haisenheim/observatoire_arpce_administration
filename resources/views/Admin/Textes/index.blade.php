@@ -4,12 +4,12 @@
 @section('content-header')
 <div class="row mb-2">
     <div class="col-sm-6">
-      <h1 class="m-0">BONNES PRATIQUES</h1>
+      <h1 class="m-0">TEXTES REGLEMENTAIRES</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-        <li class="breadcrumb-item active">Bonnes pratiques</li>
+        <li class="breadcrumb-item active">Textes reglementaires</li>
       </ol>
     </div><!-- /.col -->
   </div><!-- /.row -->
@@ -32,16 +32,16 @@
                             </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pratiques as $p)
+                        @foreach ($textes as $p)
                             <tr>
                                 <td><a href="{{ $p->fichier }}"> {{ $p->name }} </a></td>
                                 <td><span class="badge badge-{{ $p->active?'success':'danger' }}">{{ $p->active?'en ligne':'retirée' }}</span></td>
 
                                 <td>
                                     @if($p->active)
-                                        <a class="btn btn-sm btn-warning" href="/admin/pratique/disable/{{ $p->id }}">retirer</a>
+                                        <a class="btn btn-sm btn-warning" href="/admin/texte/disable/{{ $p->id }}">retirer</a>
                                     @else
-                                        <a class="btn btn-sm btn-success" href="/admin/pratique/enable/{{ $p->id }}">publier</a>
+                                        <a class="btn btn-sm btn-success" href="/admin/texte/enable/{{ $p->id }}">publier</a>
                                     @endif
                                 </td>
                             </tr>
@@ -56,12 +56,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">NOUVEL ELEMENT</h4>
+          <h4 class="modal-title">NOUVEAU TEXTE</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="/admin/bonnes-pratiques">
+        <form method="POST" enctype="multipart/form-data" action="/admin/textes">
         <div class="modal-body">
             @csrf
           <div class="row">

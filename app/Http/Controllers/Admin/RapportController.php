@@ -23,7 +23,19 @@ class RapportController extends ExtendedController
     }
 
 
+    public function enable($id){
+        $pratique = Rapport::find($id);
+        $pratique->active = 1;
+        $pratique->save();
+        return back();
+    }
 
+    public function disable($id){
+        $pratique = Rapport::find($id);
+        $pratique->active = 0;
+        $pratique->save();
+        return back();
+    }
 
 
 
@@ -37,7 +49,7 @@ class RapportController extends ExtendedController
         //
     }
 
-  
+
 
 
 
