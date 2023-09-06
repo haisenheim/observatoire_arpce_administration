@@ -41,9 +41,9 @@
                                 <td><span class="badge badge-{{ $p->status['color'] }}">{{ $p->status['name'] }}</span></td>
                                 <td>
                                     @if ($p->active)
-                                        <span><a class="btn btn-xs btn-danger" href="/admin/faq/disable/{{ $p->id }}">suspendre</a></span>
+                                        <span><a class="btn btn-xs btn-danger" href="{{ route('admin.faq.disable',$p->id) }}">suspendre</a></span>
                                     @else
-                                        <span><a class="btn btn-xs btn-warning" href="/admin/faq/enable/{{ $p->id }}">publier</a></span>
+                                        <span><a class="btn btn-xs btn-warning" href="{{ route('admin.faq.enable',$p->id) }}">publier</a></span>
                                     @endif
                                 </td>
                             </tr>
@@ -54,7 +54,7 @@
         </div>
   </div>
 
-  
+
 
   <div class="modal fade" id="addFournisseur">
     <div class="modal-dialog modal-lg">
@@ -65,7 +65,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="/admin/faqs">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.faqs.store') }}">
         <div class="modal-body">
             @csrf
           <div class="row">
@@ -91,7 +91,7 @@
                     </select>
                 </div>
             </div>
-            
+
           </div>
         </div>
         <div class="modal-footer justify-content-between">

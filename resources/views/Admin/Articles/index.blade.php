@@ -36,14 +36,14 @@
                         @foreach ($articles as $p)
                             <tr>
                                 <td>{{ date_format($p->created_at,'d/m/Y H:i') }}</td>
-                                <td><a href="/admin/articles/{{$p->id}}"> {{ $p->name }}</a></td>
+                                <td><a href="{{ route('admin.articles.show',$p->id) }}"> {{ $p->name }}</a></td>
                                 <td>{{ $p->category?$p->category->name:'-' }}</td>
                                 <td><span class="badge badge-{{ $p->status['color'] }}">{{ $p->status['name'] }}</span></td>
                                 <td>
                                     @if ($p->active)
-                                        <span><a class="btn btn-xs btn-danger" href="/admin/article/disable/{{ $p->id }}">suspendre</a></span>
+                                        <span><a class="btn btn-xs btn-danger" href="{{ route('admin.article.disable',$p->id) }}">suspendre</a></span>
                                     @else
-                                        <span><a class="btn btn-xs btn-warning" href="/admin/article/enable/{{ $p->id }}">publier</a></span>
+                                        <span><a class="btn btn-xs btn-warning" href="{{ route('admin.article.enable',$p->id) }}">publier</a></span>
                                     @endif
                                 </td>
                             </tr>
@@ -63,7 +63,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="/admin/articles">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.articles.store') }}">
         <div class="modal-body">
             @csrf
           <div class="row">

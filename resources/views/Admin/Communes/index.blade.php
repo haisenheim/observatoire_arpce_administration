@@ -52,7 +52,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" action="/admin/communes">
+        <form method="POST" action="{{ route('admin.communes.store') }}">
         <div class="modal-body">
             @csrf
           <div class="row">

@@ -35,7 +35,7 @@
                     <tbody>
                         @foreach ($entreprises as $p)
                             <tr>
-                                <td><a href="/admin/entreprises/{{$p->id}}"></a> {{ $p->name }}</td>
+                                <td><a href="{{ route('admin.entreprises.show',$p->id) }}"></a> {{ $p->name }}</td>
                                 <td>{{ $p->phone }}</td>
                                 <td>{{ $p->email }}</td>
                                 <td>{{ $p->secteur?$p->secteur->name:'-' }}</td>
@@ -57,7 +57,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="/admin/entreprises">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.entreprises.store') }}">
         <div class="modal-body">
             @csrf
           <div class="row">

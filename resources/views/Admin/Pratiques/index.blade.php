@@ -39,9 +39,9 @@
 
                                 <td>
                                     @if($p->active)
-                                        <a class="btn btn-sm btn-warning" href="/admin/pratique/disable/{{ $p->id }}">retirer</a>
+                                        <a class="btn btn-sm btn-warning" href="{{ route('admin.pratique.disable',$p->id) }}">retirer</a>
                                     @else
-                                        <a class="btn btn-sm btn-success" href="/admin/pratique/enable/{{ $p->id }}">publier</a>
+                                        <a class="btn btn-sm btn-success" href="{{ route('admin.pratique.enable',$p->id) }}">publier</a>
                                     @endif
                                 </td>
                             </tr>
@@ -61,7 +61,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="/admin/bonnes-pratiques">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.bonnes-pratiques.store') }}">
         <div class="modal-body">
             @csrf
           <div class="row">

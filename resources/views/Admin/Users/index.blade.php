@@ -45,11 +45,11 @@
                                     <ul class="list-inline">
                                         @if($p->active)
                                             <li class="list-inline-item">
-                                                <a href="/admin/user/disable/{{ $p->token}}" class="btn btn-xs btn-danger" title="bloquer ce compte"><i class="fa fa-lock"></i></a>
+                                                <a href="{{ route('admin.user.disable',$p->token) }}" class="btn btn-xs btn-danger" title="bloquer ce compte"><i class="fa fa-lock"></i></a>
                                             </li>
                                         @else
                                             <li class="list-inline-item">
-                                                <a href="/admin/user/enable/{{ $p->token}}" class="btn btn-xs btn-success" title="debloquer ce compte"><i class="fa fa-unlock"></i></a>
+                                                <a href="{{ route('admin.user.enable',$p->token) }}" class="btn btn-xs btn-success" title="debloquer ce compte"><i class="fa fa-unlock"></i></a>
                                             </li>
                                         @endif
                                     </ul>
@@ -74,7 +74,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" action="/admin/users">
+        <form method="POST" action="{{ route('admin.users.store') }}">
         <div class="modal-body">
             @csrf
 

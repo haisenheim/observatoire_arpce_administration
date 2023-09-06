@@ -49,7 +49,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside style="overflow: scroll;" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
 
       <h3 style="text-align:center; font-weight:600" class="brand-text brand-link">ADMINISTRATION</h3>
@@ -63,7 +63,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="/admin/dashboard" class="nav-link {{ $active==1?'active':'' }}">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ $active==1?'active':'' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 DONNEES COLLECTEES
@@ -72,7 +72,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/admin/entreprises" class="nav-link {{ $active==2?'active':'' }}">
+            <a href="{{ route('admin.entreprises.index') }}" class="nav-link {{ $active==2?'active':'' }}">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 ENTREPRISES
@@ -80,7 +80,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/rapports" class="nav-link {{ $active==3?'active':'' }}">
+            <a href="{{ route('admin.rapports.index') }}" class="nav-link {{ $active==3?'active':'' }}">
               <i class="nav-icon fas fa-chart-bar"></i>
               <p>
                 RAPPORTS
@@ -88,7 +88,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/textes" class="nav-link {{ $active==31?'active':'' }}">
+            <a href="{{ route('admin.textes.index') }}" class="nav-link {{ $active==31?'active':'' }}">
               <i class="nav-icon fas fa-circle"></i>
               <p>
                 TEXTES
@@ -96,7 +96,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/bonnes-pratiques" class="nav-link {{ $active==32?'active':'' }}">
+            <a href="{{ route('admin.bonnes-pratiques.index') }}" class="nav-link {{ $active==32?'active':'' }}">
               <i class="nav-icon fas fa-circle"></i>
               <p>
                 BONNES PRATIQUES
@@ -104,15 +104,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/indicateurs" class="nav-link {{ $active==4?'active':'' }}">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                INDICATEURS
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/articles" class="nav-link {{ $active==5?'active':'' }}">
+            <a href="{{ route('admin.articles.index') }}" class="nav-link {{ $active==5?'active':'' }}">
                 <i class="nav-icon fas fa-edit"></i>
               <p>
                 PUBLICATIONS
@@ -129,31 +121,31 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="/admin/params" class="nav-link">
+                    <a href="{{ route('admin.param.index') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>INFOS</p>
                     </a>
                   </li>
               <li class="nav-item">
-                <a href="/admin/categories" class="nav-link">
+                <a href="{{ route('admin.categories.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/faqs" class="nav-link">
+                <a href="{{ route('admin.faqs.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Faq</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/tags" class="nav-link">
+                <a href="{{ route('admin.tags.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mots clefs</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/communes" class="nav-link">
+                <a href="{{ route('admin.communes.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>COMMUNES</p>
                 </a>
@@ -162,7 +154,7 @@
           </li>
           <li class="nav-header"></li>
           <li class="nav-item">
-            <a style="font-style:italic" href="/admin/users" class="nav-link nav-light {{ $active==6?'active':'' }}">
+            <a style="font-style:italic" href="{{ route('admin.users.index') }}" class="nav-link nav-light {{ $active==6?'active':'' }}">
               <i class="nav-icon fas fa-ellipsis-h"></i>
               <p>Comptes utilisateur</p>
             </a>

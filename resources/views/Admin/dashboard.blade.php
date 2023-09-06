@@ -14,7 +14,7 @@
        <div class="row">
         @foreach ($fiches as $p)
             <div class="col-md-3 col-sm-12">
-                <a href="/admin/fiches/{{ $p->token }}">
+                <a href="{{ route('admin.fiche.show',$p->token) }}">
                     <div class="card bg-light">
                         <div class="card-body">
                             <div style="height:200px;">

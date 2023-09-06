@@ -5,7 +5,7 @@
     <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
     <div class="container">
         <div>
-            <form method="POST" enctype="multipart/form-data" action="/admin/params">
+            <form method="POST" enctype="multipart/form-data" action="{{ route('admin.param.store') }}">
                 <div class="modal-body">
                     @csrf
                   <div class="row">

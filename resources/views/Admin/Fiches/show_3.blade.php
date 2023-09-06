@@ -10,7 +10,7 @@
                         <div class="section-title">
                             <h5>FICHE DE COLLECTE DE DONNEES {{ $fiche->annee }}</h5>
                             <div class="float-right">
-                                <a class="btn btn-sm btn-success" href="/admin/fiche/export/{{ $fiche->token }}"><i class="fa fa-file-excel"></i> Exporter</a>
+                                <a class="btn btn-sm btn-success" href="{{ route('admin.fiche.export',$fiche->token) }}"><i class="fa fa-file-excel"></i> Exporter</a>
                             </div>
                         </div>
 

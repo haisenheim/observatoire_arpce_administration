@@ -79,7 +79,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="/admin/article/update">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.article.save') }}">
         <div class="modal-body">
             @csrf
             <input type="hidden" name="id" value="{{ $article->id }}">
@@ -138,7 +138,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST"  action="/admin/article/tag">
+        <form method="POST"  action="{{ route('admin.article.add-tag') }}">
         <div class="modal-body">
             @csrf
             <input type="hidden" name="article_id" value="{{ $article->id }}">

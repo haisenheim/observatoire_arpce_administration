@@ -53,7 +53,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="/admin/categories">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('admin.categories.store') }}">
         <div class="modal-body">
             @csrf
           <div class="row">
@@ -62,7 +62,7 @@
                       <input type="text" name="name" placeholder="Nom" class="form-control">
                   </div>
               </div>
-            
+
         </div>
         <div class="modal-footer justify-content-between">
           <button type="submit" class="btn btn-success">Enregistrer</button>

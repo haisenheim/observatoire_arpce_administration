@@ -30,9 +30,9 @@
 
                                 <td>
                                     @if($p->active)
-                                        <a class="btn btn-sm btn-warning" href="/admin/rapport/disable/{{ $p->id }}">retirer</a>
+                                        <a class="btn btn-sm btn-warning" href="{{ route('admin.rapport.disable',$p->id) }}">retirer</a>
                                     @else
-                                        <a class="btn btn-sm btn-success" href="/admin/rapport/enable/{{ $p->id }}">publier</a>
+                                        <a class="btn btn-sm btn-success" href="{{ route('admin.rapport.disable',$p->id) }}">publier</a>
                                     @endif
                                 </td>
                         </tr>

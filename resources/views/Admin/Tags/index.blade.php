@@ -53,7 +53,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST"  action="/admin/tags">
+        <form method="POST"  action="{{ route('admin.tags.store') }}">
         <div class="modal-body">
             @csrf
           <div class="row">
