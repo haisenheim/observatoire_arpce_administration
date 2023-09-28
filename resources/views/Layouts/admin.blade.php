@@ -54,7 +54,7 @@
 
       <h3 style="text-align:center; font-weight:600" class="brand-text brand-link">ADMINISTRATION</h3>
       <p style="text-align:center;">
-        <a style="color:#fff; font-size:1.4rem;" href="/logout">Se déconnecter</a>
+        <a style="color:#fff; font-size:1.4rem;" href="{{ route('logout') }}">Se déconnecter</a>
       </p>
       <!-- Sidebar Menu -->
       <nav class="mt-2">

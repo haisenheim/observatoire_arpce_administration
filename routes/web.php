@@ -75,25 +75,10 @@ Route::prefix('admin')
         Route::get('user/disable/{token}', 'UserController@disable')->name('user.disable');
 
     });
-//Route::get('/', [OperateurController::class,'index']);
-Route::prefix('account')
-    ->namespace('App\Http\Controllers\Account')
-    ->middleware(['auth'])
-    ->name('account.')
-    ->group(function(){
-        Route::resource('rapports', 'RapportController');
-        Route::resource('fiches', 'FicheController');
-        Route::post('/fiche/datacenter','FicheController@addDatacenter');
-        Route::resource('datacenters', 'DatacenterController');
-        Route::get('/profil','ProfilController@index');
-        Route::post('/profil','ProfilController@store');
-        Route::resource('articles', 'ArticleController');
-
-    });
 
 
 
 
-Route::get('/print/{id}',[OperateurController::class,'print']);
+
 
 
