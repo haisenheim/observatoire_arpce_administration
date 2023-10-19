@@ -93,12 +93,12 @@
                     <input type="file" name="image_uri" required placeholder="image" class="form-control">
                 </div>
             </div>
-            <div class="col-md-12 col-sm-12">
+            {{-- <div class="col-md-12 col-sm-12">
                 <div class="form-group">
                     <label for="">FICHIER EN TELECHARGEMENT</label>
                     <input type="file" name="fichier_uri" placeholder="Fichier" class="form-control">
                 </div>
-            </div>
+            </div> --}}
           </div>
         </div>
         <div class="modal-footer justify-content-between">

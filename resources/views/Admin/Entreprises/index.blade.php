@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="form-group">
-                    <input type="text" name="email" required placeholder="email" class="form-control">
+                    <input type="text" name="ent_email" required placeholder="email" class="form-control">
                 </div>
             </div>
             <div class="col-md-12 col-sm-12">
@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12">
                     <div class="form-group">
-                        <input type="text" name="user_email" placeholder="Email" required=true class="form-control">
+                        <input type="text" name="email" placeholder="Email" required=true class="form-control">
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12">

@@ -169,6 +169,9 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div style="background: #fff" class="content-wrapper">
+    <div id="div-flash" class="container">
+        @include('includes.flash-message')
+    </div>
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">

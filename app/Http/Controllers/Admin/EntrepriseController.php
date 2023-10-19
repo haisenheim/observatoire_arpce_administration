@@ -7,6 +7,7 @@ use App\Models\Entreprise;
 use App\Models\Secteur;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EntrepriseController extends ExtendedController
 {
@@ -42,12 +43,22 @@ class EntrepriseController extends ExtendedController
     public function store(Request $request)
     {
         //$data = $request->except('image_uri');
+        $validator = Validator::make($request->all(), [
+            'user_email' => 'required|unique:users|max:255',
+        ]);
+        //dd($validator->validated());
+        if($validator->fails()){
+            //dd($validator);
+            request()->session()->flash('danger',' Impossible d\'enregistrer cette entreprise, Veuillez changer l\'email du compte admin !!!');
+            return back();
+        }
+
         $data['name'] = $request->name;
         $data['phone'] = $request->phone;
-        $data['email'] = $request->email;
+        $data['email'] = $request->ent_email;
         $data['secteur_id'] = $request->secteur_id;
         $token = sha1(time());
-        $data['token'] = $token;
+       // $data['token'] = $token;
         $image = request()->image_uri;
         if($image){
             $path = $this->entityImgCreate($image,'entreprise',time());
@@ -57,7 +68,7 @@ class EntrepriseController extends ExtendedController
         $user = new User();
         $user->name = $request->user_name;
         $user->phone = $request->user_phone;
-        $user->email = $request->user_email;
+        $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->entreprise_id = $entreprise->id;
         $user->role_id = 2;

@@ -57,10 +57,10 @@ class ArticleController extends ExtendedController
             $path = $this->entityImgCreate($image,'articles',time());
             $data['image_uri'] = $path;
         }
-        $fichier = $request->fichier_uri;
+       /*  $fichier = $request->fichier_uri;
         if($fichier){
             $data['fichier_uri'] = $this->entityDocumentCreate($fichier,'articles',time());
-        }
+        } */
         $slide = Article::create($data);
         return back();
     }
