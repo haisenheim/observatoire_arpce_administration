@@ -57,14 +57,14 @@ class UserController extends Controller
     }
 
     public function  enable($token){
-        $user = User::where('token',$token)->first();
+        $user = User::where('id',$token)->first();
         $user->active = 1;
         $user->save();
         return back();
     }
 
     public function  disable($token){
-        $user = User::where('token',$token)->first();
+        $user = User::where('id',$token)->first();
         $user->active = 0;
         $user->save();
         return back();

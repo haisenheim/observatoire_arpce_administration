@@ -125,7 +125,7 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>INFOS</p>
                     </a>
-                  </li>
+                </li>
               <li class="nav-item">
                 <a href="{{ route('admin.categories.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -142,12 +142,6 @@
                 <a href="{{ route('admin.tags.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mots clefs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('admin.communes.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>COMMUNES</p>
                 </a>
               </li>
             </ul>

@@ -18,11 +18,7 @@
 @section('content')
   <div class="">
         <div class="card card-light">
-            <div class="card-header">
-                <div class="pull-right"><button data-target="#addFournisseur" data-toggle="modal" class="btn btn-xs btn-success"><i class="fa fa-plus-circle" title="Ajouter une region"></i></button></div>
-            </div>
             <div class="card-body table-responsive">
-
                 <table class="table table-bordered table-sm table-hover data-table">
                     <thead>
                           <tr>
@@ -30,6 +26,8 @@
                                 <th>TEL</th>
                                 <th>EMAIL</th>
                                 <th>ROLE</th>
+                                <th>ENTREPRISE</th>
+                                <th>STATUT</th>
                                 <th></th>
                             </tr>
                     </thead>
@@ -40,16 +38,23 @@
                                 <td>{{ $p->phone }}</td>
                                 <td>{{ $p->email }}</td>
                                 <td>{{ $p->role?$p->role->name:'-' }}</td>
-
+                                <td>{{ $p->entreprise?$p->entreprise->name:'-' }}</td>
                                 <td>
-                                    <ul class="list-inline">
+                                    @if($p->active)
+                                      <span class="badge badge-success">actif</span>
+                                    @else
+                                        <span class="badge badge-danger">bloqué</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <ul class="list-inline mb-0">
                                         @if($p->active)
                                             <li class="list-inline-item">
-                                                <a href="{{ route('admin.user.disable',$p->token) }}" class="btn btn-xs btn-danger" title="bloquer ce compte"><i class="fa fa-lock"></i></a>
+                                                <a href="{{ route('admin.user.disable',$p->id) }}" class="btn btn-xs btn-danger" title="bloquer ce compte"><i class="fa fa-lock"></i></a>
                                             </li>
                                         @else
                                             <li class="list-inline-item">
-                                                <a href="{{ route('admin.user.enable',$p->token) }}" class="btn btn-xs btn-success" title="debloquer ce compte"><i class="fa fa-unlock"></i></a>
+                                                <a href="{{ route('admin.user.enable',$p->id) }}" class="btn btn-xs btn-warning" title="debloquer ce compte"><i class="fa fa-unlock"></i></a>
                                             </li>
                                         @endif
                                     </ul>

@@ -60,7 +60,13 @@ class BonnePratiqueController extends ExtendedController
         $rapport = new Pratique();
         $fichier = $request->fichier_uri;
         $rapport->name = $request->name;
-        $rapport->fichier_uri = $this->entityDocumentCreate($fichier,'pratiques',time());
+        $path = $this->entityDocumentCreate($fichier,'pratiques',time());
+            if(!$path){
+                request()->session()->flash('danger',' Impossible d\'enregistrer le fichier, le format n\'est pas correct !!!');
+                return back();
+            }
+        $rapport->fichier_uri = $path;
+        //$rapport->fichier_uri = $this->entityDocumentCreate($fichier,'pratiques',time());
         $rapport->user_id = auth()->user()->id;
         $rapport->save();
         return back();

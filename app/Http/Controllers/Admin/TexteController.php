@@ -61,7 +61,13 @@ class TexteController extends ExtendedController
         $rapport = new Texte();
         $fichier = $request->fichier_uri;
         $rapport->name = $request->name;
-        $rapport->fichier_uri = $this->entityDocumentCreate($fichier,'textes',time());
+        $path = $this->entityDocumentCreate($fichier,'textes',time());
+            if(!$path){
+                request()->session()->flash('danger',' Impossible d\'enregistrer le fichier, le format n\'est pas correct !!!');
+                return back();
+            }
+        $rapport->fichier_uri = $path;
+
         $rapport->user_id = auth()->user()->id;
         $rapport->save();
         return back();

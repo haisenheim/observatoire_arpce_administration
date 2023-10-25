@@ -33,14 +33,11 @@ class ExtendedController extends Controller
 	}
 
 	protected function entityDocumentCreate($file,$entity,$name_without_extension){
-
 		$ext = $file->getClientOriginalExtension();
-		$arr_ext = $this->authExtensions();
-
+		$arr_ext = array('pdf','PDF','Pdf');
 		if (!file_exists(public_path('files'))) {
 			mkdir(public_path('files'));
 		}
-
 		if (!file_exists(public_path('files') . '/'.$entity)) {
 			mkdir(public_path('files') . '/'.$entity);
 		}
@@ -54,11 +51,8 @@ class ExtendedController extends Controller
 			$file->move(public_path('files/' . $entity), $name_with_extension);
 			return $imageUri;
 		}else{
-			//dd('ok');
-			request()->session()->flash('danger',' Impossible d\'enregistrer le fichier, le format n\'est pas correct !!!');
+            return null;
 		}
-
-
 		return null;
 	}
 }

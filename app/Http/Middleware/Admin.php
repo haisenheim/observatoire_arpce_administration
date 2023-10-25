@@ -44,6 +44,12 @@ class Admin
         if(in_array('user',$path)){
 		    Session::put('active', 6);
 	    }
+        if(in_array('textes',$path)){
+		    Session::put('active', 31);
+	    }
+        if(in_array('bonnes-pratiques',$path)){
+		    Session::put('active', 32);
+	    }
 	    if(in_array('communes',$path)||in_array('tags',$path)||in_array('categories',$path)||in_array('params',$path)){
 		    Session::put('active', 7);
 	    }
