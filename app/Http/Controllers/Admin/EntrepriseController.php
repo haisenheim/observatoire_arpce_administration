@@ -44,7 +44,7 @@ class EntrepriseController extends ExtendedController
     {
         //$data = $request->except('image_uri');
         $validator = Validator::make($request->all(), [
-            'user_email' => 'required|unique:users|max:255',
+            'email' => 'required|unique:users|max:255',
         ]);
         //dd($validator->validated());
         if($validator->fails()){
